@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Play } from "lucide-react"
+import { Play, Pause } from "lucide-react"
+import { useState, useRef } from "react"
 
 interface Testimonial {
   id: string
@@ -47,7 +48,7 @@ const testimonials: Testimonial[] = [
     company: "Fieldnotes",
     quote: "",
     featured: true,
-    featuredImage: "/images/avatars/user4.jpg",
+    featuredImage: "/videos/testi.mp4",
   },
 ]
 
@@ -165,41 +166,77 @@ function TestimonialCard2({ testimonial }: { testimonial: Testimonial }) {
 }
 
 function FeaturedCard({ testimonial }: { testimonial: Testimonial }) {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const togglePlay = async () => {
+    if (!videoRef.current) return
+
+    if (isPlaying) {
+      videoRef.current.pause()
+    } else {
+      // Reset to beginning if ended
+      if (videoRef.current.ended) {
+        videoRef.current.currentTime = 0
+      }
+      try {
+        await videoRef.current.play()
+      } catch (error) {
+        console.error("Video play failed:", error)
+      }
+    }
+  }
+
   return (
     <motion.div
       variants={cardVariants}
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
       className="relative h-full min-h-[500px] md:min-h-full rounded-2xl overflow-hidden cursor-pointer group"
+      onClick={togglePlay}
     >
-      {/* Background Image */}
+      {/* Background Image/Video */}
       <div className="absolute inset-0 bg-gray-800">
         {testimonial.featuredImage ? (
-          <Image
+          <video
+            ref={videoRef}
             src={testimonial.featuredImage}
-            alt={testimonial.name}
-            fill
-            className="object-cover"
+            poster="/images/avatars/user4.jpg"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            onPause={() => setIsPlaying(false)}
+            onPlay={() => setIsPlaying(true)}
+            onEnded={() => setIsPlaying(false)}
+            playsInline
+            // muted
+            preload="auto"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900" />
         )}
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+        <div className={`absolute inset-0 z-10 transition-colors ${isPlaying ? 'bg-black/10' : 'bg-black/30 group-hover:bg-black/40'}`} />
       </div>
 
-      {/* Play Button */}
+      {/* Play/Pause Button */}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors"
-        aria-label="Play video"
+        onClick={(e) => {
+          e.stopPropagation()
+          togglePlay()
+        }}
+        className={`absolute z-20 top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-all ${isPlaying ? 'opacity-70' : 'opacity-100'}`}
+        aria-label={isPlaying ? "Pause video" : "Play video"}
       >
-        <Play className="w-5 h-5 text-white fill-white" />
+        {isPlaying ? (
+          <Pause className="w-5 h-5 text-white fill-white" />
+        ) : (
+          <Play className="w-5 h-5 text-white fill-white" />
+        )}
       </motion.button>
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6">
+      <div className={`absolute z-20 bottom-0 left-0 right-0 p-6 transition-opacity duration-300 ${isPlaying ? 'opacity-70' : 'opacity-100'}`}>
         <h4 className="text-xl tracking-tighter font-semibold text-white">{testimonial.name}.</h4>
         <p className="text-xs uppercase tracking-widest text-gray-300">{testimonial.role} at {testimonial.company}.</p>
       </div>
