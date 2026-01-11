@@ -4,6 +4,7 @@ import { LenisProvider } from "@/components/providers/lenis-provider";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import FloatingBadge from "@/components/FloatingBadge";
+import { data } from "@/data";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,8 +20,8 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Agri - Agriculture Brand",
-  description: "Premium agriculture products and services",
+  title: data.site.seo.title,
+  description: data.site.seo.description,
 };
 
 export default function RootLayout({

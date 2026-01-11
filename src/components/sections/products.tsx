@@ -3,76 +3,10 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
+import { data, type Product } from "@/data"
 
-interface Product {
-  id: string
-  name: string
-  description: string
-  image: string
-}
-
-const products: Product[] = [
-  {
-    id: "fresh-coconuts",
-    name: "Fresh Coconuts",
-    description: "Premium quality coconuts sourced from organic farms",
-    image: "/images/products/fresh.png",
-  },
-  {
-    id: "desiccated",
-    name: "Desiccated Coconut",
-    description: "Finely dried coconut flakes for baking and cooking",
-    image: "/images/products/dessic.png",
-  },
-  {
-    id: "coconut-oil",
-    name: "Coconut Oil",
-    description: "Pure cold-pressed oil for cooking and wellness",
-    image: "/images/products/oil.png",
-  },
-  {
-    id: "coconut-flour",
-    name: "Coconut Flour",
-    description: "Gluten-free flour alternative for healthy baking",
-    image: "/images/products/flour.png",
-  },
-  {
-    id: "dehydrated",
-    name: "Dehydrated Coconut",
-    description: "Naturally dried coconut pieces for versatile use",
-    image: "/images/products/dehyd.png",
-  },
-  {
-    id: "coco-charcoal",
-    name: "Coco Shell Charcoal",
-    description: "Sustainable eco-friendly charcoal for grilling",
-    image: "/images/products/charcoal.png",
-  },
-  {
-    id: "coco-chips",
-    name: "Coco Shell Chips",
-    description: "Natural mulch and bedding for gardens and farms",
-    image: "/images/products/chips.png",
-  },
-  {
-    id: "fresh-produce",
-    name: "Fruits & Vegetables",
-    description: "Fresh seasonal produce from local farms",
-    image: "/images/products/veg.png",
-  },
-  {
-    id: "king-coconut",
-    name: "King Coconut",
-    description: "Premium hydrating coconuts rich in electrolytes",
-    image: "/images/products/king.png",
-  },
-  {
-    id: "virgin-oil",
-    name: "Coconut Virgin Oil",
-    description: "Extra virgin oil extracted through cold-pressing",
-    image: "/images/products/virgin.png",
-  },
-]
+const { products: productsConfig } = data
+const products = productsConfig.items
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -154,7 +88,7 @@ export function Products() {
           transition={{ duration: 0.5 }}
           className="text-5xl lg:text-[6rem] font-body font-medium text-green-950 mb-8 md:mb-20 tracking-tighter md:text-center"
         >
-          Our Products
+          {productsConfig.sectionTitle}
         </motion.h2>
 
         {/* Simple 3-Column Grid */}

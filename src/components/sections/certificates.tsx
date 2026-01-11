@@ -2,24 +2,11 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { data, type Certificate } from "@/data"
 
-interface Certificate {
-  id: string
-  name: string
-  image: string
-}
-
-const leftCertificates: Certificate[] = [
-  { id: "iso-22000", name: "ISO 22000", image: "/images/certificates/c1.jpg" },
-  { id: "haccp", name: "HACCP", image: "/images/certificates/c2.jpg" },
-  { id: "gmp", name: "GMP Certified", image: "/images/certificates/c3.jpg" },
-]
-
-const rightCertificates: Certificate[] = [
-  { id: "usda", name: "USDA Organic", image: "/images/certificates/c4.jpg" },
-  { id: "eu-organic", name: "EU Organic", image: "/images/certificates/c5.jpg" },
-  { id: "fair-trade", name: "Fair Trade", image: "/images/certificates/c6.jpg" },
-]
+const { certificates: certificatesConfig } = data
+const leftCertificates = certificatesConfig.leftCertificates
+const rightCertificates = certificatesConfig.rightCertificates
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -86,7 +73,7 @@ export function Certificates() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl md:text-4xl lg:text-[5rem] font-body font-medium text-green-950 mb-8 tracking-tighter text-center"
             >
-              Certificates & Partners
+              {certificatesConfig.sectionTitle}
             </motion.h2>
 
             <motion.p
@@ -96,8 +83,7 @@ export function Certificates() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-2xl mx-auto text-gray-500 text-lg leading-tight tracking-tighter"
             >
-              Our commitment to quality is backed by internationally recognized certifications
-              and trusted partnerships that ensure the highest standards in every product.
+              {certificatesConfig.description}
             </motion.p>
           </div>
 
@@ -131,8 +117,8 @@ export function Certificates() {
                 }}
               >
                 <Image
-                  src="/images/white.png"
-                  alt="AGRI Logo"
+                  src={certificatesConfig.centerLogo.src}
+                  alt={certificatesConfig.centerLogo.alt}
                   width={100}
                   height={100}
                   className="object-contain"

@@ -5,13 +5,10 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { data } from "@/data"
 
-const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Products", href: "#products" },
-  { name: "Contact", href: "#contact" },
-
-]
+const { navbar } = data
+const navLinks = navbar.links
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -27,10 +24,10 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/logo.png"
-            alt="AGRI Logo"
-            width={40}
-            height={40}
+            src={navbar.logo.src}
+            alt={navbar.logo.alt}
+            width={navbar.logo.width || 40}
+            height={navbar.logo.height || 40}
             className="mr-2"
           />
           {/* <motion.span

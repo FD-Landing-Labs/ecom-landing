@@ -4,72 +4,11 @@ import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { data, type Slide } from "@/data"
 
-interface Slide {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  image: string
-  backgroundColor: string
-  titleColor: string
-  subtitleColor: string
-}
-
-const slides: Slide[] = [
-  {
-    id: "coconut",
-    title: "COCONUT",
-    subtitle: "FRESH",
-    description: "Versatile tropical fruit with hydrating water, rich meat, and milk",
-    image: "/images/fresh.png",
-    backgroundColor: "#f5f0e8",
-    titleColor: "#6b4a35",
-    subtitleColor: "#a67c5b",
-  },
-  {
-    id: "mango",
-    title: "COCONUT",
-    subtitle: "DESICATED",
-    description: "Sweet tropical delight bursting with vitamins and golden flavor",
-    image: "/images/desicated.png",
-    backgroundColor: "#fff8e8",
-    titleColor: "#c4661f",
-    subtitleColor: "#e8a33c",
-  },
-  {
-    id: "coco-shell",
-    title: "COCO SHELL",
-    subtitle: "CHIPS & POWDER",
-    description: "Eco-friendly coconut shell products for sustainable living",
-    image: "/images/shell.png",
-    backgroundColor: "#f5f0e8",
-    titleColor: "#6b4a35",
-    subtitleColor: "#a67c5b",
-  },
-  {
-    id: "avocado",
-    title: "FRUITS",
-    subtitle: "VEGETABLES &",
-    description: "Nutrient-dense superfood with smooth texture and healthy fats",
-    image: "/images/fv.png",
-    backgroundColor: "#f0f5e8",
-    titleColor: "#4a5d3a",
-    subtitleColor: "#7a9c5a",
-  },
-  {
-    id: "coco-oil",
-    title: "VIRGIN OIL",
-    subtitle: "COCONUT",
-    description: "High-quality coconut oil for cooking, skincare, and haircare",
-    image: "/images/oil.png",
-    backgroundColor: "#f5f0e8",
-    titleColor: "#6b4a35",
-    subtitleColor: "#a67c5b",
-  }
-]
-
-const AUTOPLAY_INTERVAL = 5000
+const { heroCarousel } = data
+const slides = heroCarousel.slides
+const AUTOPLAY_INTERVAL = heroCarousel.autoplayInterval
 
 export function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)

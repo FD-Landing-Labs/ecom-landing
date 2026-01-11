@@ -1,39 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Leaf, Globe, TreePine, Sprout, Apple, Warehouse } from "lucide-react"
+import { data } from "@/data"
 
-const partners = [
-  { name: "FreshCo", icon: Apple },
-  { name: "GreenLeaf", icon: Leaf },
-  { name: "TropicTrade", icon: Globe },
-  { name: "NaturePure", icon: Sprout },
-  { name: "EcoHarvest", icon: TreePine },
-  { name: "GlobalAgri", icon: Warehouse },
-]
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.3,
-    },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
-  },
-}
+const { about } = data
 
 export function About() {
   return (
@@ -62,9 +32,9 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl leading-[1.2]"
           >
-            <span className="font-display text-[#0F5A36]">A.S.AGRI EXPORTS®</span>
-            <span className="text-gray-500 tracking-tighter font-medium">
-              {" "}— One of the largest exporter of coconut products in Sri Lanka. Established in 2004 as an exporter of fresh coconuts, A. S. Agri Exports Pvt Ltd has come long way expanding products range.
+            <span className="font-display" style={{ color: about.style.brandColor }}>{about.brandName}{about.brandNameSuffix}</span>
+            <span className="tracking-tighter font-medium" style={{ color: about.style.textColor }}>
+              {about.description}
             </span>
           </motion.h2>
         </div>

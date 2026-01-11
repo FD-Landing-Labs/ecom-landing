@@ -4,50 +4,10 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { data, type FAQItem } from "@/data"
 
-interface FAQItem {
-  id: string
-  question: string
-  answer: string
-}
-
-const faqs: FAQItem[] = [
-  {
-    id: "1",
-    question: "What kind of clients do you work with?",
-    answer: "We work with businesses of all sizes, from local farms to international food distributors. Our clients include retailers, wholesalers, food processing companies, and direct importers looking for premium quality coconut products from Sri Lanka.",
-  },
-  {
-    id: "2",
-    question: "What products do you offer?",
-    answer: "We offer a comprehensive range of coconut products including fresh coconuts, desiccated coconut, coconut oil, virgin coconut oil, coconut flour, coconut cream, coco shell charcoal, and coco shell chips. We also export fresh fruits and vegetables.",
-  },
-  {
-    id: "3",
-    question: "How do you ensure product quality?",
-    answer: "Quality is our top priority. All our products are sourced from certified organic farms and processed in HACCP and ISO 22000 certified facilities. We conduct rigorous quality checks at every stage of production and maintain full traceability.",
-  },
-  {
-    id: "4",
-    question: "What is your typical shipping timeline?",
-    answer: "Shipping timelines vary by destination and product type. Generally, orders are processed within 5-7 business days, with international shipping taking 2-4 weeks depending on the destination port. We offer both sea and air freight options.",
-  },
-  {
-    id: "5",
-    question: "Can you handle custom orders?",
-    answer: "Absolutely! We specialize in customizing orders to meet specific client requirements. Whether it's custom packaging, private labeling, or specific product specifications, our team works closely with you to deliver exactly what you need.",
-  },
-  {
-    id: "6",
-    question: "Do you offer samples before bulk orders?",
-    answer: "Yes, we provide product samples for quality evaluation before committing to bulk orders. Sample costs and shipping are typically credited towards your first bulk order. Contact us to arrange your sample shipment.",
-  },
-  {
-    id: "7",
-    question: "What certifications do your products have?",
-    answer: "Our products carry multiple international certifications including ISO 22000, HACCP, GMP, USDA Organic, EU Organic, and Fair Trade certifications. These ensure our products meet the highest global standards for quality and safety.",
-  },
-]
+const { faq: faqConfig } = data
+const faqs = faqConfig.items
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -147,7 +107,7 @@ export function FAQ() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-3xl md:text-4xl lg:text-5xl font-body font-semibold text-green-900 tracking-tighter leading-[1.1] mb-6"
               >
-                Wondering How We Work?
+                {faqConfig.headline}
               </motion.h2>
 
               {/* Description */}
@@ -158,7 +118,7 @@ export function FAQ() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-gray-500 leading-relaxed tracking-tight"
               >
-                Answers to common questions about our process, products, and how we work.
+                {faqConfig.description}
               </motion.p>
             </div>
           </div>

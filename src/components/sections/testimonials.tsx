@@ -4,6 +4,11 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Play, Pause } from "lucide-react"
 import { useState, useRef } from "react"
+import { data, type TextTestimonial, type VideoTestimonial } from "@/data"
+
+const { testimonials: testimonialsConfig } = data
+const textTestimonials = testimonialsConfig.textTestimonials
+const videoTestimonial = testimonialsConfig.videoTestimonial
 
 interface Testimonial {
   id: string
@@ -14,43 +19,8 @@ interface Testimonial {
   avatar?: string
   featured?: boolean
   featuredImage?: string
+  posterImage?: string
 }
-
-const testimonials: Testimonial[] = [
-  {
-    id: "1",
-    name: "Jordan Peterson",
-    role: "Founder",
-    company: "Vest",
-    quote: "Their questions were sharp, their ideas sharper. The result finally looks and feels like us.",
-    avatar: "/images/avatars/user2.jpg",
-  },
-  {
-    id: "2",
-    name: "Amira D",
-    role: "Marketing Lead",
-    company: "Sonder",
-    quote: "The team understood our brand better than we did. They didn't just redesign the site — they helped reposition the company.",
-    avatar: "/images/avatars/user1.jpg",
-  },
-  {
-    id: "3",
-    name: "Michelle Davis",
-    role: "Creative Director",
-    company: "Allora",
-    quote: "We thought we needed a website. What we got was clarity, confidence, and a way to tell our story.",
-    avatar: "/images/avatars/user3.jpg",
-  },
-  {
-    id: "4",
-    name: "Sam Harris",
-    role: "Head of Product",
-    company: "Fieldnotes",
-    quote: "",
-    featured: true,
-    featuredImage: "/videos/testi.mp4",
-  },
-]
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -201,7 +171,7 @@ function FeaturedCard({ testimonial }: { testimonial: Testimonial }) {
           <video
             ref={videoRef}
             src={testimonial.featuredImage}
-            poster="/images/avatars/user4.jpg"
+            poster={testimonial.posterImage}
             className="absolute inset-0 w-full h-full object-cover z-0"
             onPause={() => setIsPlaying(false)}
             onPlay={() => setIsPlaying(true)}
@@ -260,8 +230,9 @@ export function Testimonials() {
               transition={{ duration: 0.5 }}
               className="text-4xl md:text-5xl lg:text-6xl font-body capitalize font-medium text-green-900 tracking-tighter leading-none "
             >
-              Clients share<br />
-              their experience.
+              {testimonialsConfig.headline.split('\n').map((line, i) => (
+                <span key={i}>{line}{i < testimonialsConfig.headline.split('\n').length - 1 && <br />}</span>
+              ))}
             </motion.h2>
 
             {/* Right: Description */}
@@ -273,8 +244,8 @@ export function Testimonials() {
               className="flex items-end"
             >
               <p className="text-base text-gray-500 leading-relaxed max-w-md lg:ml-auto tracking-tighter">
-                <span className="font-semibold text-gray-800">Every project is a partnership,</span>{" "}
-                and the feedback we receive guides how we grow. Here&apos;s what some of our collaborators had to say about working together.
+                <span className="font-semibold text-gray-800">{testimonialsConfig.description.highlight}</span>{" "}
+                {testimonialsConfig.description.text}
               </p>
             </motion.div>
           </div>
@@ -289,15 +260,24 @@ export function Testimonials() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {/* Card 1 - Avatar top, quote bottom */}
-          <TestimonialCard1 testimonial={testimonials[0]} />
+          <TestimonialCard1 testimonial={textTestimonials[0]} />
           {/* Card 1 - Avatar top, quote bottom */}
 
           {/* Card 2 - Quote top, avatar bottom */}
-          <TestimonialCard2 testimonial={testimonials[1]} />
+          <TestimonialCard2 testimonial={textTestimonials[1]} />
 
-          <TestimonialCard1 testimonial={testimonials[2]} />
+          <TestimonialCard1 testimonial={textTestimonials[2]} />
           {/* Card 4 - Featured with image */}
-          <FeaturedCard testimonial={testimonials[3]} />
+          <FeaturedCard testimonial={{
+            id: videoTestimonial.id,
+            name: videoTestimonial.name,
+            role: videoTestimonial.role,
+            company: videoTestimonial.company,
+            quote: "",
+            featured: true,
+            featuredImage: videoTestimonial.videoSrc,
+            posterImage: videoTestimonial.posterImage
+          }} />
         </motion.div>
       </div>
     </section>

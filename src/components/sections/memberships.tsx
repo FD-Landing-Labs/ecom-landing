@@ -2,60 +2,10 @@
 
 import { motion, cubicBezier } from "framer-motion"
 import Image from "next/image"
+import { data, type Membership } from "@/data"
 
-interface Membership {
-  id: string
-  name: string
-  image?: string
-  gridClass?: string
-}
-
-const memberships: Membership[] = [
-  {
-    id: "edb",
-    image: "/images/membership/m1.jpg",
-    name: "National Chamber of Commerce of Sri Lanka",
-    gridClass: "md:col-span-1",
-  },
-  {
-    id: "chamber",
-    name: "",
-    gridClass: "md:col-span-1",
-  },
-  {
-    id: "exporters",
-    image: "/images/membership/m2.jpg",
-    name: "National Chamber of Exports of Sri Lanka",
-    gridClass: "md:col-span-1",
-  },
-  {
-    id: "coconut",
-    name: "",
-    gridClass: "md:col-span-1",
-  },
-  {
-    id: "standards",
-    name: "",
-    gridClass: "md:col-span-1 md:row-span-1",
-  },
-  {
-    id: "fao",
-    image: "/images/membership/m3.jpg",
-    name: "The Ceylon National Chamber of Industries",
-    gridClass: "md:col-span-1",
-  },
-  {
-    id: "itc",
-    name: "",
-    gridClass: "md:col-span-1",
-  },
-  {
-    id: "itc2",
-    image: "/images/membership/m4.jpg",
-    name: "Exporters Association of Sri Lanka",
-    gridClass: "md:col-span-1",
-  },
-]
+const { memberships: membershipsConfig } = data
+const memberships = membershipsConfig.items
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -125,7 +75,7 @@ export function Memberships() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl md:text-4xl lg:text-[5rem] font-body font-medium text-green-950 mb-8 tracking-tighter text-center"
             >
-              Our Memberships
+              {membershipsConfig.sectionTitle}
             </motion.h2>
           </div>
 

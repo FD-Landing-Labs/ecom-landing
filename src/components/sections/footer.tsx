@@ -3,41 +3,26 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Facebook, Instagram, Linkedin } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { data } from "@/data"
 
-const topNavLinks = [
-  { name: "PRIVACY POLICY", href: "/privacy" },
-  { name: "TERMS", href: "/terms" },
-  { name: "COOKIES", href: "/cookies" },
-  { name: "SITEMAP", href: "/sitemap" },
-]
+const { footer: footerConfig } = data
+const topNavLinks = footerConfig.topNavLinks
+const linkGroups = footerConfig.linkGroups
 
-const linkGroups = [
-  {
-    category: "PRODUCTS",
-    links: [
-      { name: "Fresh Coconuts", href: "#products" },
-      { name: "Desiccated", href: "#products" },
-      { name: "Coconut Oil", href: "#products" },
-      { name: "Coco Shell", href: "#products" },
-    ],
-  },
-  {
-    category: "CONTACT",
-    links: [
-      { name: "No:100, Thimbilla Estate, Puttalam Rd, Chilaw", href: "#contact" },
-      { name: "+94 324650202 | +94322221050 | +94322221814", href: "#contact" },
-      { name: "info@asagriexports.lk", href: "#contact" },
-    ],
-  },
-]
+// Map icon names to components
+const iconMap = {
+  facebook: Facebook,
+  instagram: Instagram,
+  linkedin: Linkedin,
+  twitter: Twitter,
+}
 
-const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
-  // { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-]
+const socialLinks = footerConfig.socialLinks.map(link => ({
+  ...link,
+  icon: iconMap[link.icon]
+}))
 
 export function Footer() {
   return (
@@ -57,7 +42,7 @@ export function Footer() {
                   viewport={{ once: true }}
                   className="inline-block text-xs tracking-[0.2em] text-gray-700 uppercase"
                 >
-                  Trusted Exporter
+                  {footerConfig.badge}
                 </motion.span>
 
                 {/* Headline */}
@@ -68,7 +53,9 @@ export function Footer() {
                   transition={{ delay: 0.1 }}
                   className="text-3xl md:text-4xl font-body tracking-tighter font-semibold text-green-950 leading-[1] text-center"
                 >
-                  AS AGRI <br />Premium Coconut Products <br />From Sri Lanka
+                  {footerConfig.headline.split('\n').map((line, i) => (
+                    <span key={i}>{line}{i < footerConfig.headline.split('\n').length - 1 && <br />}</span>
+                  ))}
                 </motion.h2>
 
                 {/* Logo Image */}
@@ -77,11 +64,12 @@ export function Footer() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="relative w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-[#0F5A36]"
+                  className="relative w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden"
+                  style={{ backgroundColor: footerConfig.logo.backgroundColor }}
                 >
                   <Image
-                    src="/images/white.png"
-                    alt="AS AGRI Logo"
+                    src={footerConfig.logo.src}
+                    alt={footerConfig.logo.alt}
                     fill
                     className="object-contain p-4"
                   />
@@ -95,19 +83,19 @@ export function Footer() {
                   transition={{ delay: 0.3 }}
                   className="flex flex-wrap gap-4"
                 >
-                  <Button
-                    size="lg"
-                    className="rounded-full bg-white text-black hover:bg-gray-200 px-8"
-                  >
-                    Contact Us
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="rounded-full border-gray-400 hover:bg-white/10 px-8"
-                  >
-                    Get Quote
-                  </Button>
+                  {footerConfig.ctaButtons.map((button, index) => (
+                    <Button
+                      key={index}
+                      size="lg"
+                      variant={button.variant === "outline" ? "outline" : "default"}
+                      className={button.variant === "outline"
+                        ? "rounded-full border-gray-400 hover:bg-white/10 px-8"
+                        : "rounded-full bg-white text-black hover:bg-gray-200 px-8"
+                      }
+                    >
+                      {button.label}
+                    </Button>
+                  ))}
                 </motion.div>
               </div>
 
