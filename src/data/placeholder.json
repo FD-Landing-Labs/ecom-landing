@@ -1,0 +1,389 @@
+{
+  "site": {
+    "name": "A.S. AGRI EXPORTS",
+    "tagline": "Premium Coconut Products From Sri Lanka",
+    "description": "One of the largest exporter of coconut products in Sri Lanka. Established in 2004 as an exporter of fresh coconuts.",
+    "logo": {
+      "default": "/images/logo.png",
+      "white": "/images/white.png",
+      "alt": "A.S. AGRI EXPORTS Logo"
+    },
+    "seo": {
+      "title": "A.S. AGRI EXPORTS - Premium Coconut Products From Sri Lanka",
+      "description": "Premium agriculture products and services. One of the largest exporters of coconut products in Sri Lanka since 2004.",
+      "keywords": ["coconut", "export", "Sri Lanka", "agriculture", "organic", "fresh coconuts"],
+      "ogImage": "/images/og-image.jpg"
+    },
+    "theme": {
+      "primaryColor": "#0F5A36",
+      "secondaryColor": "#6b4a35",
+      "backgroundColor": "#f5f5f5",
+      "accentColor": "#a67c5b"
+    }
+  },
+
+  "navbar": {
+    "logo": {
+      "src": "/images/logo.png",
+      "alt": "AGRI Logo",
+      "width": 40,
+      "height": 40
+    },
+    "links": [
+      { "name": "About", "href": "#about" },
+      { "name": "Products", "href": "#products" },
+      { "name": "Contact", "href": "#contact" }
+    ]
+  },
+
+  "heroCarousel": {
+    "autoplayInterval": 5000,
+    "slides": [
+      {
+        "id": "coconut",
+        "title": "COCONUT",
+        "subtitle": "FRESH",
+        "description": "Versatile tropical fruit with hydrating water, rich meat, and milk",
+        "image": "/images/fresh.png",
+        "backgroundColor": "#f5f0e8",
+        "titleColor": "#6b4a35",
+        "subtitleColor": "#a67c5b"
+      },
+      {
+        "id": "mango",
+        "title": "COCONUT",
+        "subtitle": "DESICATED",
+        "description": "Sweet tropical delight bursting with vitamins and golden flavor",
+        "image": "/images/desicated.png",
+        "backgroundColor": "#fff8e8",
+        "titleColor": "#c4661f",
+        "subtitleColor": "#e8a33c"
+      },
+      {
+        "id": "coco-shell",
+        "title": "COCO SHELL",
+        "subtitle": "CHIPS & POWDER",
+        "description": "Eco-friendly coconut shell products for sustainable living",
+        "image": "/images/shell.png",
+        "backgroundColor": "#f5f0e8",
+        "titleColor": "#6b4a35",
+        "subtitleColor": "#a67c5b"
+      },
+      {
+        "id": "avocado",
+        "title": "FRUITS",
+        "subtitle": "VEGETABLES &",
+        "description": "Nutrient-dense superfood with smooth texture and healthy fats",
+        "image": "/images/fv.png",
+        "backgroundColor": "#f0f5e8",
+        "titleColor": "#4a5d3a",
+        "subtitleColor": "#7a9c5a"
+      },
+      {
+        "id": "coco-oil",
+        "title": "VIRGIN OIL",
+        "subtitle": "COCONUT",
+        "description": "High-quality coconut oil for cooking, skincare, and haircare",
+        "image": "/images/oil.png",
+        "backgroundColor": "#f5f0e8",
+        "titleColor": "#6b4a35",
+        "subtitleColor": "#a67c5b"
+      }
+    ]
+  },
+
+  "about": {
+    "brandName": "A.S.AGRI EXPORTS",
+    "brandNameSuffix": "\u00ae",
+    "description": " \u2014 One of the largest exporter of coconut products in Sri Lanka. Established in 2004 as an exporter of fresh coconuts, A. S. Agri Exports Pvt Ltd has come long way expanding products range.",
+    "style": {
+      "brandColor": "#0F5A36",
+      "textColor": "#6b7280",
+      "backgroundColor": "#e5e7eb"
+    }
+  },
+
+  "products": {
+    "sectionTitle": "Our Products",
+    "items": [
+      {
+        "id": "fresh-coconuts",
+        "name": "Fresh Coconuts",
+        "description": "Premium quality coconuts sourced from organic farms",
+        "image": "/images/products/fresh.png"
+      },
+      {
+        "id": "desiccated",
+        "name": "Desiccated Coconut",
+        "description": "Finely dried coconut flakes for baking and cooking",
+        "image": "/images/products/dessic.png"
+      },
+      {
+        "id": "coconut-oil",
+        "name": "Coconut Oil",
+        "description": "Pure cold-pressed oil for cooking and wellness",
+        "image": "/images/products/oil.png"
+      },
+      {
+        "id": "coconut-flour",
+        "name": "Coconut Flour",
+        "description": "Gluten-free flour alternative for healthy baking",
+        "image": "/images/products/flour.png"
+      },
+      {
+        "id": "dehydrated",
+        "name": "Dehydrated Coconut",
+        "description": "Naturally dried coconut pieces for versatile use",
+        "image": "/images/products/dehyd.png"
+      },
+      {
+        "id": "coco-charcoal",
+        "name": "Coco Shell Charcoal",
+        "description": "Sustainable eco-friendly charcoal for grilling",
+        "image": "/images/products/charcoal.png"
+      },
+      {
+        "id": "coco-chips",
+        "name": "Coco Shell Chips",
+        "description": "Natural mulch and bedding for gardens and farms",
+        "image": "/images/products/chips.png"
+      },
+      {
+        "id": "fresh-produce",
+        "name": "Fruits & Vegetables",
+        "description": "Fresh seasonal produce from local farms",
+        "image": "/images/products/veg.png"
+      },
+      {
+        "id": "king-coconut",
+        "name": "King Coconut",
+        "description": "Premium hydrating coconuts rich in electrolytes",
+        "image": "/images/products/king.png"
+      },
+      {
+        "id": "virgin-oil",
+        "name": "Coconut Virgin Oil",
+        "description": "Extra virgin oil extracted through cold-pressing",
+        "image": "/images/products/virgin.png"
+      }
+    ]
+  },
+
+  "certificates": {
+    "sectionTitle": "Certificates & Partners",
+    "description": "Our commitment to quality is backed by internationally recognized certifications and trusted partnerships that ensure the highest standards in every product.",
+    "centerLogo": {
+      "src": "/images/white.png",
+      "alt": "AGRI Logo",
+      "backgroundColor": "#0F5A36"
+    },
+    "leftCertificates": [
+      { "id": "iso-22000", "name": "ISO 22000", "image": "/images/certificates/c1.jpg" },
+      { "id": "haccp", "name": "HACCP", "image": "/images/certificates/c2.jpg" },
+      { "id": "gmp", "name": "GMP Certified", "image": "/images/certificates/c3.jpg" }
+    ],
+    "rightCertificates": [
+      { "id": "usda", "name": "USDA Organic", "image": "/images/certificates/c4.jpg" },
+      { "id": "eu-organic", "name": "EU Organic", "image": "/images/certificates/c5.jpg" },
+      { "id": "fair-trade", "name": "Fair Trade", "image": "/images/certificates/c6.jpg" }
+    ]
+  },
+
+  "memberships": {
+    "sectionTitle": "Our Memberships",
+    "items": [
+      {
+        "id": "edb",
+        "image": "/images/membership/m1.jpg",
+        "name": "National Chamber of Commerce of Sri Lanka",
+        "gridClass": "md:col-span-1"
+      },
+      {
+        "id": "chamber",
+        "name": "",
+        "gridClass": "md:col-span-1"
+      },
+      {
+        "id": "exporters",
+        "image": "/images/membership/m2.jpg",
+        "name": "National Chamber of Exports of Sri Lanka",
+        "gridClass": "md:col-span-1"
+      },
+      {
+        "id": "coconut",
+        "name": "",
+        "gridClass": "md:col-span-1"
+      },
+      {
+        "id": "standards",
+        "name": "",
+        "gridClass": "md:col-span-1 md:row-span-1"
+      },
+      {
+        "id": "fao",
+        "image": "/images/membership/m3.jpg",
+        "name": "The Ceylon National Chamber of Industries",
+        "gridClass": "md:col-span-1"
+      },
+      {
+        "id": "itc",
+        "name": "",
+        "gridClass": "md:col-span-1"
+      },
+      {
+        "id": "itc2",
+        "image": "/images/membership/m4.jpg",
+        "name": "Exporters Association of Sri Lanka",
+        "gridClass": "md:col-span-1"
+      }
+    ]
+  },
+
+  "testimonials": {
+    "headline": "Clients share their experience.",
+    "description": {
+      "highlight": "Every project is a partnership,",
+      "text": "and the feedback we receive guides how we grow. Here's what some of our collaborators had to say about working together."
+    },
+    "textTestimonials": [
+      {
+        "id": "1",
+        "name": "Jordan Peterson",
+        "role": "Founder",
+        "company": "Vest",
+        "quote": "Their questions were sharp, their ideas sharper. The result finally looks and feels like us.",
+        "avatar": "/images/avatars/user2.jpg"
+      },
+      {
+        "id": "2",
+        "name": "Amira D",
+        "role": "Marketing Lead",
+        "company": "Sonder",
+        "quote": "The team understood our brand better than we did. They didn't just redesign the site \u2014 they helped reposition the company.",
+        "avatar": "/images/avatars/user1.jpg"
+      },
+      {
+        "id": "3",
+        "name": "Michelle Davis",
+        "role": "Creative Director",
+        "company": "Allora",
+        "quote": "We thought we needed a website. What we got was clarity, confidence, and a way to tell our story.",
+        "avatar": "/images/avatars/user3.jpg"
+      }
+    ],
+    "videoTestimonial": {
+      "id": "4",
+      "name": "Sam Harris",
+      "role": "Head of Product",
+      "company": "Fieldnotes",
+      "videoSrc": "/videos/testi.mp4",
+      "posterImage": "/images/avatars/user4.jpg"
+    }
+  },
+
+  "faq": {
+    "headline": "Wondering How We Work?",
+    "description": "Answers to common questions about our process, products, and how we work.",
+    "items": [
+      {
+        "id": "1",
+        "question": "What kind of clients do you work with?",
+        "answer": "We work with businesses of all sizes, from local farms to international food distributors. Our clients include retailers, wholesalers, food processing companies, and direct importers looking for premium quality coconut products from Sri Lanka."
+      },
+      {
+        "id": "2",
+        "question": "What products do you offer?",
+        "answer": "We offer a comprehensive range of coconut products including fresh coconuts, desiccated coconut, coconut oil, virgin coconut oil, coconut flour, coconut cream, coco shell charcoal, and coco shell chips. We also export fresh fruits and vegetables."
+      },
+      {
+        "id": "3",
+        "question": "How do you ensure product quality?",
+        "answer": "Quality is our top priority. All our products are sourced from certified organic farms and processed in HACCP and ISO 22000 certified facilities. We conduct rigorous quality checks at every stage of production and maintain full traceability."
+      },
+      {
+        "id": "4",
+        "question": "What is your typical shipping timeline?",
+        "answer": "Shipping timelines vary by destination and product type. Generally, orders are processed within 5-7 business days, with international shipping taking 2-4 weeks depending on the destination port. We offer both sea and air freight options."
+      },
+      {
+        "id": "5",
+        "question": "Can you handle custom orders?",
+        "answer": "Absolutely! We specialize in customizing orders to meet specific client requirements. Whether it's custom packaging, private labeling, or specific product specifications, our team works closely with you to deliver exactly what you need."
+      },
+      {
+        "id": "6",
+        "question": "Do you offer samples before bulk orders?",
+        "answer": "Yes, we provide product samples for quality evaluation before committing to bulk orders. Sample costs and shipping are typically credited towards your first bulk order. Contact us to arrange your sample shipment."
+      },
+      {
+        "id": "7",
+        "question": "What certifications do your products have?",
+        "answer": "Our products carry multiple international certifications including ISO 22000, HACCP, GMP, USDA Organic, EU Organic, and Fair Trade certifications. These ensure our products meet the highest global standards for quality and safety."
+      }
+    ]
+  },
+
+  "footer": {
+    "topNavLinks": [
+      { "name": "PRIVACY POLICY", "href": "/privacy" },
+      { "name": "TERMS", "href": "/terms" },
+      { "name": "COOKIES", "href": "/cookies" },
+      { "name": "SITEMAP", "href": "/sitemap" }
+    ],
+    "badge": "Trusted Exporter",
+    "headline": "AS AGRI\nPremium Coconut Products\nFrom Sri Lanka",
+    "logo": {
+      "src": "/images/white.png",
+      "alt": "AS AGRI Logo",
+      "backgroundColor": "#0F5A36"
+    },
+    "ctaButtons": [
+      {
+        "label": "Contact Us",
+        "href": "#contact",
+        "variant": "primary"
+      },
+      {
+        "label": "Get Quote",
+        "href": "#quote",
+        "variant": "outline"
+      }
+    ],
+    "linkGroups": [
+      {
+        "category": "PRODUCTS",
+        "links": [
+          { "name": "Fresh Coconuts", "href": "#products" },
+          { "name": "Desiccated", "href": "#products" },
+          { "name": "Coconut Oil", "href": "#products" },
+          { "name": "Coco Shell", "href": "#products" }
+        ]
+      },
+      {
+        "category": "CONTACT",
+        "links": [
+          { "name": "No:100, Thimbilla Estate, Puttalam Rd, Chilaw", "href": "#contact" },
+          { "name": "+94 324650202 | +94322221050 | +94322221814", "href": "#contact" },
+          { "name": "info@asagriexports.lk", "href": "#contact" }
+        ]
+      }
+    ],
+    "contact": {
+      "address": "No:100, Thimbilla Estate, Puttalam Rd, Chilaw",
+      "phones": ["+94 324650202", "+94322221050", "+94322221814"],
+      "email": "info@asagriexports.lk"
+    },
+    "socialLinks": [
+      {
+        "name": "Facebook",
+        "href": "https://facebook.com",
+        "icon": "facebook"
+      },
+      {
+        "name": "Instagram",
+        "href": "https://instagram.com",
+        "icon": "instagram"
+      }
+    ]
+  }
+}
